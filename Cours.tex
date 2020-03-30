@@ -53,6 +53,94 @@
 \newpage
 \section{Ondes sonores stationnaires}
 
+\subsection{Expression de l'onde stationnaire}
+
+Considérons une onde acoustique incidente dans un tuyau (par exemple celui d'un instrument de musique). 
+
+\begin{itemize}
+\item C'est une onde progressive selon l'axe $Oz$, vers les $z$ croissants. La vitesse a pour expression
+
+\begin{center}
+\scalebox{1.2}{$\overrightarrow{v}(z,t)=\frac{v_{0}}{2}\cos(\omega t-kz+\phi-\phi')\overrightarrow{e_{z}}$}
+\end{center}
+
+\item Imaginons qu'il existe également une onde réfléchie (nous verrons les causes qui conduisent à l'apparition d'une telle onde plus loin), qui s'exprime
+\begin{center}
+\scalebox{1.2}{$\overrightarrow{v}(z,t)=-\frac{v_{0}}{2}\cos(\omega t+kz+\phi+\phi')\overrightarrow{e_{z}}$}
+\end{center}
+\end{itemize}
+
+\noindent\shadowbox{\begin{minipage}[t]{1\linewidth}%
+\begin{itemize}
+\item Dans ce cas, la superposition de ces deux ondes donne naissance à l'onde stationnaire suivante
+\end{itemize}
+\begin{center}
+$v=\overrightarrow{v}\cdot\overrightarrow{e_{z}}=v_{0}\sin(kz+\phi')\sin(\omega t+\phi)$
+\end{center}
+\begin{itemize}
+\item De plus, comme la pression est reliée à la vitesse, on trouve comme expression de la surpression, dans le cas des ondes stationnaires
+\end{itemize}
+\begin{center}
+$p=Zv_{0}\cos(kz+\phi')\cos(\omega t+\phi)$
+\end{center}
+où $Z$ est l'impédance acoustique du milieu.
+\end{minipage}}
+
+\subsection{Nœuds et ventres}
+
+\begin{itemize}
+\item Comme deux grandeurs physiques oscillent au cours du temps et dans l'espace, il faut trouver où sont les ventres et les nœuds d'oscillation pour chacune des grandeurs.
+\end{itemize}
+
+\noindent\shadowbox{\begin{minipage}[t]{1\linewidth}%
+\begin{itemize}
+\item Les \textbf{nœuds} de la vitesse apparaissent lorsque $kz + \phi ' = n\pi$
+\item A ces positions, le terme en cosinus dans la pression est maximal, on a donc un \textbf{ventre} de la pression.
+\item Inversement, les positions pour lesquelles on a un nœud de pression correspondent à un ventre pour la vitesse
+\end{itemize}
+\end{minipage}}
+
+On peut comprendre ce fait de la façon suivant: lorsque le fluide dans lequel l'onde se déplace se comprime de plus en plus, la vitesse du fluide diminue jusqu'à ce que la pression devienne maximale ; comme on ne peut plus comprimer le fluide simplement par le passage de l'onde, la vitesse s'annule, puis le gaz va commencer à se détendre (analogie avec un ressort que l'on comprime, puis qui va se détendre
+
+Lorsque la surpression s'annule, la vitesse du fluide est maximale, avant d'entamer un nouveau cycle de compression/détente. Sur la figure ci-dessous sont représentés des nœuds/ventres pour ces deux grandeurs et leur position relative.
+
+\begin{center}
+ {\includegraphics[scale=0.65]{nv.png}}
+\end{center}
+
+Sur cette figure, on voit que pour chaque grandeur physique ont été tracées deux courbes correspondant à la valeur de chaque grandeur physique à des instants différents
+
+\noindent\shadowbox{\begin{minipage}[t]{1\linewidth}%
+\begin{itemize}
+\item Surpression et vitesse varient dans le temps, même si la position des nœuds et ventres ne varie pas (si les conditions ne changent pas!).
+\end{itemize}
+\end{minipage}}
+
+\subsection{Modes propres d'une cavité}
+
+Un tuyau ayant deux extrémités, il faut indiquer quelles sont les conditions aux limites pour pouvoir établir quelle onde stationnaire va s'établir dans le tuyau, c'est-à-dire quelle va être la position des nœuds et ventres des différentes grandeurs physiques. Pour chaque extrémité, deux chois s'offrent:
+
+\noindent\shadowbox{\begin{minipage}[t]{1\linewidth}%
+\begin{itemize}
+\item Soit le tuyau est ouvert en $z=z_{0}$. Dans ce cas, la pression dans le tuyau au niveau de l'ouverture est égale à la pression atmosphérique, et donc \textbf{la surpression est nulle}
+\end{itemize}
+\begin{center}
+$\forall t, p(z=z_{0}, t) = 0$
+\end{center}
+\begin{itemize}
+\item Soit le tuyau est fermé en $z=z_{0}$. Dans ce cas, le fluide ne peut physiquement plus se propager au-delà de cette limite, \textbf{la vitesse du fluide est donc nulle}
+\end{itemize}
+\begin{center}
+$\forall t, v(z=z_{0}, t) = 0$
+\end{center}
+\end{minipage}}
+
+\begin{itemize}
+\item[1.] \underline{Cas de deux extrémités ouvertes}: Dans ce cas, la surpression est nulle aux deux extrémités du tuyau de longueur $L$. Si on suppose que ce tuyau va de $z = 0$ à $z = L$, la condition $p(z=L,t)=0$ s'exprime sous la forme : $kL=n\pi$, avec $n$ entier. On a donc $L=np/2$. L'entier $n$ représente ici l'harmonique de l'onde, mais également le nombre de fuseaux présents au niveau de la surpression (un fuseau apparait sur la figure précédente entre deux nœuds consécutifs de la même grandeur physique). Aux extrémités, la surpression est nulle et la vitesse est maximale (centre de la vitesse).
+Cette situation physique se présente dans les instruments de type flûte, dont le tuyau est ouvert aux deux extrémités. La vibration de l'air est réalisée grâce à un biseau à l'embouchure de l'instrument.
+\item[2.] \underline{Cas de deux extrémités fermées}: Dans ce cas, c'est la vitesse qui est nulle en $z=0$ et en $z=L$. La condition $v(z=0,t)=0$ permet d'écrire dans ce cas $\phi = \pi /2$, et la condition $v(z=L,t)=0$, conduit aux mêmes modes propres que précédemment.
+\end{itemize}
+
 \subsection{Énergie d'une onde stationnaire}
 
 \begin{itemize}
@@ -106,7 +194,6 @@ dont la valeur moyenne temporelle est nulle:
 \begin{center}
 \scalebox{1.2}{$\left\langle e\right\rangle =\frac{\rho_{0}v_{m}^{2}}{4}$}
 \end{center}
-
 \end{minipage}}
 
 \subsection{Ordres de grandeurs}
