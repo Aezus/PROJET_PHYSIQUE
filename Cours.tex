@@ -6,6 +6,8 @@
 \usepackage{setspace}
 \usepackage{amsmath}
 \usepackage{fancybox, graphicx}
+\usepackage{color}
+\usepackage{hyperref}
 \pagestyle{fancy}
 \renewcommand{\footrulewidth}{1pt}
 \fancyfoot[L]{La Pr\'epa des INP - Bordeaux}
@@ -18,8 +20,8 @@
 \begin{document}
 
 \begin{titlepage}
-{\includegraphics[height=1.5cm]{bx-inp.png}}
-{\includegraphics[height=1.5cm]{cpp-inp.png}}
+{\includegraphics[height=1.5cm]{bx-inp.eps}}
+{\includegraphics[height=1.5cm]{cpp-inp.eps}}
 \vspace*{\stretch{1}}
 \begin{center}
  \Huge{\textbf{Cours d'ondes acoustiques dans les fluides}}
@@ -30,7 +32,7 @@
 \end{center}
 \vspace*{\stretch{0.25}}
 \begin{center}
- {\includegraphics[scale=0.65]{frst-pg.png}}
+ {\includegraphics[scale=0.65]{frst-pg.eps}}
 \end{center}
 \vspace*{\stretch{1}}
 \begin{center}
@@ -44,6 +46,135 @@
 
 \section{Mise en équation des ondes sonores}
 
+\subsection{Introduction}
+
+L'objectif de ce projet est, dans un premier temps, de montrer que la propagation du son est un phénomène ondulatoire, puis d'essayer de décrire cette propagation dans les fluides qualitativement et quantitativement.\newline \newline
+Par exemple, un haut parleur émet du son dans l'air. L'air étant un fluide déformable, il se déforme lors du passage du son, entraînant une modification de volume (et donc de masse volumique et de pression) pour les particules de fluide voisines. Cette déformation se propage ensuite jusqu'à atteindre notre oreille par exemple, créant ainsi une onde \underline{acoustique}.
+\begin{flushright}
+{\textcolor{blue}{\href{https://youtu.be/px3oVGXr4mo?t=09}{Observation d'un "clap" par strioscopie}}}
+\end{flushright}
+Pour l'étude on retiendra ceci:
+\begin{itemize}
+\item Les ondes sonores sont des ondes mécaniques: elles nécessitent un milieu matériel pour se propager (on peut d'ailleurs montrer par l'expérience que le son est inaudible dans le vide).
+
+\item Étudier les ondes acoustiques traversant le fluide revient donc à étudier les perturbations qu'elles causent dans le fluide. C'est-à-dire que l'on tentera de mettre en équation les variations de pression et le déplacement des particules de fluides.
+\end{itemize}
+
+\subsection{Position des hypothèses}
+\subsubsection{Approximation acoustique}
+Le fluide étudié est considéré parfait et on néglige l'influence de la pesanteur.\newline
+Nous caractérisons le fluide au repos par:
+\begin{itemize}
+\item une pression uniforme $P_0$,
+\item une masse volumique uniforme $\mu_0$,
+\item une vitesse particulaire nulle (à différencier de la vitesse de l'onde!).
+\end{itemize}
+L'onde sonore constitue \textbf{une perturbation par rapport à cet état d'équilibre}. On décrit alors l'état du fluide dans l'espace et dans le temps par:
+\begin{itemize}
+\item la pression $P(M,t)=P_0+p(M,t)$, où $p(M,t)$ est la surpression due au passage de l'onde (\underline{pression acoustique}),
+\item la masse volumique $\rho_{tot}(M,t)=\rho_0+\rho(M,t)$, avec $\rho(M,t)$ la variation de masse volumique,
+\item $\vec{v}(M,t)$ la vitesse des particules de fluide induite par la propagation des ondes acoustiques. \newline
+\end{itemize}
+Pour notre étude, nous aurons besoin des approximations suivantes dans le cadre des petites déformations:$\begin{cases}
+|p(M,t)|\ll P_0 &\text{(1)}\\
+|\rho(M,t)|\ll \rho_0 \text{, le fluide reste relativement incompressible} \\
+||\vec{v}(M,t)||\ll c \text{, où c est la vitesse de l'onde} &\text{(2)}
+\end{cases}$\newline \newline \newline
+L'hypothèse (1) se vérifie par l'expérience. Effectivement, pour les ondes acoustiques on peut mesurer la pression acoustique créée. Prenons un cas extrême : le décollage d'une fusée engendre {\textcolor{blue}{\href{https://fr.wikipedia.org/wiki/Comparaison_du_volume_de_sources_courantes_de_bruit}{une pression acoustique de $2.10^4$ Pa}}}(l'équivalent de 180 dB); ce qui reste négligeable devant la pression atmosphérique de $10^5$ Pa. Si on considère maintenant un son banal : une personne qui parle, l'ordre de grandeur est de $0,01$ Pa. Nous restons donc largement sous cette hypothèse. \newline
+\begin{center}
+{\includegraphics[height=4cm]{fusee.eps}}
+\end{center}
+L'hypothèse (3) se vérifiera plus tard (cf 4.3)\newline
+\underline{Conclusion}: Par la suite, les petites grandeurs de variation que nous avons définies serons des termes d'ordre 1 par rapport auxquels on négligera \textbf{tous les termes d'ordre supérieur}.
+
+\subsubsection{Approximation isentropique}
+D'autres grandeurs comme la température entrent en jeu. Nous sommes donc amenés à faire des \textbf{hypothèses thermodynamiques} dans notre étude. En effet, l'onde acoustique peut se modéliser comme une succession de compressions du fluide qui se propagent. Dans un premier temps, nous négligerons les phénomènes irréversibles (viscosité du fluide, diffusion de particules notamment). En particulier, l'hypothèse (1) est cohérente car elle impose un faible gradient de pression au cours des transformations.\newline
+On ajoute à cela l'hypothèse de transformations \textbf{adiabatiques} (cf 4.3), nous étudions alors des transformations \underline{isentropiques} ($\Delta S=0$). \newline \newline
+On choisit alors de décrire le fluide par son \textbf{coefficient de compressibilité isentropique}:
+\begin{center}
+$\chi_S=-\frac{1}{V}{(\frac{\partial V}{\partial P})}_S$
+\end{center}
+
+\subsection{Équation de propagation}
+On applique l'équation d'Euler au fluide supposé parfait:
+\begin{center}
+$\rho_{tot}(\frac{\partial \vec{v}(M,t)}{\partial t}+\underbrace{(\vec{v}.\overrightarrow{\textrm{grad}})\vec{v}(M,t)}_{\text{négligé car d'ordre 2 (cf 4.3)}})=-\overrightarrow{\textrm{grad}}P(M,t)$    : équation \textcircled{a}
+\end{center}
+Or, $P(M,t)=P_0+p(M,t)$\newline
+\begin{center}
+Donc, $\overrightarrow{\textrm{grad}}P(M,t)=\overrightarrow{\textrm{grad}}(\underbrace{P_0}_{cte}+p(M,t))$ \newline
+	  $\overrightarrow{\textrm{grad}}P(M,t)=\overrightarrow{\textrm{grad}}\:p(M,t)$	
+\end{center}
+On a aussi
+\begin{center}
+$\rho_{tot}(M,t)\frac{\partial \vec{v}(M,t)}{\partial t}=\rho_0\frac{\partial \vec{v}(M,t)}{\partial t}+\underbrace{\rho(M,t)\frac{\partial \vec{v}(M,t)}{\partial t}}_{ordre 2}$\newline \newline
+$\rho_{tot}(M,t)\frac{\partial \vec{v}(M,t)}{\partial t}\approx\rho_0\frac{\partial \vec{v}(M,t)}{\partial t}$
+\end{center}
+\textcircled{a} devient donc:
+\begin{center}
+\fbox{$\rho_0\frac{\partial \vec{v}(M,t)}{\partial t}=-\overrightarrow{\textrm{grad}}p(M,t)$    : \textcircled{a}}
+\end{center}
+L'équation de conservation de la masse en 3D nous donne:
+\begin{center}
+$\rho_{tot}(M,t)div\:\vec{v}(M,t)+\frac{\partial \rho_tot(M,t)}{\partial t}=0$    : équation \textcircled{b}
+\end{center}
+Simplifions de la même manière que précédemment:
+\begin{center}
+$\rho_{tot}(M,t)div\:\vec{v}(M,t)=\rho_0div\:\vec{v}(M,t)+\underbrace{\rho(M,t)div\:\vec{v}(M,t)}_{ordre 2}$\newline
+$\rho_{tot}(M,t)div\:\vec{v}(M,t)\approx\rho_0div\:\vec{v}(M,t)$\newline \newline
+Et $\frac{\partial \rho_{tot}(M,t)}{\partial t}=\frac{\partial (\overbrace{\rho_0}^{cte}+\rho(M,t))}{\partial t}=\frac{\partial \rho(M,t)}{\partial t}$
+\end{center}
+\textcircled{b} devient alors:
+\begin{center}
+\fbox{$\rho_0div\:\vec{v}(M,t)+\frac{\partial \rho(M,t)}{\partial t}=0$    : \textcircled{b}}
+\end{center}
+Introduisons maintenant $\chi_s$ dans les équations.\newline \newline
+Par définition, $\chi_S=-\frac{1}{V}{(\frac{\partial V}{\partial P})}_S$
+\begin{center}\begin{tabular}{ccl}
+\vspace{2mm}
+$\chi_S$	    &=& $-\frac{\rho_{tot}}{m}{(\frac{\partial (\frac{m}{\rho_{tot}})}{\partial P})}_S$\quad : on peut sortir la masse du fluide car celle-ci est constante\\
+\vspace{2mm}
+	            &=&	$\frac{\rho_{tot}}{\rho_{tot}^2}{(\frac{\partial \rho_{tot}}{\partial P})}_S$\quad car $\frac{\partial {(\frac{1}{x}})}{\partial P}=-\frac{1}{x^2}\frac{\partial x}{\partial P}$ \\
+\vspace{2mm}
+	            &=&	$\frac{1}{\rho_{tot}}{(\frac{\partial \rho_{tot}}{\partial P})}_S$\\
+\vspace{2mm}
+$\chi_S$	    &$\approx$&	$\frac{1}{\rho_0}{(\frac{\partial \rho_{tot}}{\partial P})}_S$\quad car$\rho_{tot}\approx\rho_0$    : \textcircled{c}
+\end{tabular}\end{center}
+Tentons d'exprimer ${(\frac{\partial \rho_{tot}}{\partial P})}_S$ en fonction des autres grandeurs.\newline
+On peut choisir d'écrire toute grandeur thermodynamique en fonction d'un couple d'autres grandeurs. On choisit ici logiquement d'écrire $\rho_{tot}(P,S)$. En particulier, $\rho_0=\rho_{tot}(P_0,S)$.\newline
+En appliquant la formule de Taylor à l'ordre 1, on obtient
+\begin{center}
+$\rho_{tot}(P,S)=\rho_{tot}(P_0+p,S)$\newline
+$\rho_{tot}(P,S)\approx\underbrace{\rho_{tot}(P_0,S)}_{=\rho_0}+p{(\frac{\partial \rho_{tot}}{\partial P})}_S$\newline
+Donc, $\rho_0+\rho=\rho_0+p{(\frac{\partial \rho_{tot}}{\partial P})}_S$\newline \newline
+D'où $\rho=p{(\frac{\partial \rho_{tot}}{\partial P})}_S$ ou encore ${(\frac{\partial \rho_{tot}}{\partial P})}_S=\frac{\rho}{p}$\newline \newline
+En reprenant \textcircled{c}, on arrive à\newline \newline
+\fbox{$\rho=\chi_S\rho_0p$    : \textcircled{c}}
+\end{center}
+On peut maintenant appliquer \textcircled{a}, \textcircled{b}, \textcircled{c} afin d'obtenir une équation de propagation:\newline
+On applique l'opérateur $div$ à l'équation \textcircled{a}
+\begin{flushright}
+Rappel : $div(\overrightarrow{\textrm{grad}})=\Delta$ et $div(\frac{\partial .}{\partial t})=\frac{\partial}{\partial t}(div\:.)$
+\end{flushright}
+\begin{center}
+$\frac{\partial}{\partial t}(\rho_0div\:\vec{v}(M,t))=-\Delta p(M,t)$
+\end{center}
+Or, $\rho_0div\:\vec{v}(M,t)$ nous est donné par \textcircled{b}. On obtient donc
+\begin{center}
+$\frac{\partial}{\partial t}(-\frac{\partial \rho(M,t)}{\partial t})=-\Delta p(M,t)$\newline \newline
+Donc, $\Delta p(M,t)-\frac{\partial^2 \rho(M,t)}{\partial t^2}=0$
+\end{center}
+Finalement, en appliquant \textcircled{c}
+
+\noindent\shadowbox{\begin{minipage}[t]{1\linewidth}%
+\begin{center}
+$\Delta p(M,t)-\chi_S\rho_0\frac{\partial^2 p(M,t)}{\partial t^2}=0$\newline
+$\Delta p(M,t)-\frac{1}{c^2}\frac{\partial^2 p(M,t)}{\partial t^2}=0$, où $c=\frac{1}{\sqrt{\rho_0\chi_S}}$
+\end{center}
+\underline{Remarque}: On retrouve une équation de d'Alembert similaire à celle établie en propagation des ondes mécaniques où $c$ est la célérité de l'onde dans le fluide.
+
+\end{minipage}}
+
 \newpage
 \section{Ondes sonores planes progressives}
 
@@ -52,94 +183,6 @@
 
 \newpage
 \section{Ondes sonores stationnaires}
-
-\subsection{Expression de l'onde stationnaire}
-
-Considérons une onde acoustique incidente dans un tuyau (par exemple celui d'un instrument de musique). 
-
-\begin{itemize}
-\item C'est une onde progressive selon l'axe $Oz$, vers les $z$ croissants. La vitesse a pour expression
-
-\begin{center}
-\scalebox{1.2}{$\overrightarrow{v}(z,t)=\frac{v_{0}}{2}\cos(\omega t-kz+\phi-\phi')\overrightarrow{e_{z}}$}
-\end{center}
-
-\item Imaginons qu'il existe également une onde réfléchie (nous verrons les causes qui conduisent à l'apparition d'une telle onde plus loin), qui s'exprime
-\begin{center}
-\scalebox{1.2}{$\overrightarrow{v}(z,t)=-\frac{v_{0}}{2}\cos(\omega t+kz+\phi+\phi')\overrightarrow{e_{z}}$}
-\end{center}
-\end{itemize}
-
-\noindent\shadowbox{\begin{minipage}[t]{1\linewidth}%
-\begin{itemize}
-\item Dans ce cas, la superposition de ces deux ondes donne naissance à l'onde stationnaire suivante
-\end{itemize}
-\begin{center}
-$v=\overrightarrow{v}\cdot\overrightarrow{e_{z}}=v_{0}\sin(kz+\phi')\sin(\omega t+\phi)$
-\end{center}
-\begin{itemize}
-\item De plus, comme la pression est reliée à la vitesse, on trouve comme expression de la surpression, dans le cas des ondes stationnaires
-\end{itemize}
-\begin{center}
-$p=Zv_{0}\cos(kz+\phi')\cos(\omega t+\phi)$
-\end{center}
-où $Z$ est l'impédance acoustique du milieu.
-\end{minipage}}
-
-\subsection{Nœuds et ventres}
-
-\begin{itemize}
-\item Comme deux grandeurs physiques oscillent au cours du temps et dans l'espace, il faut trouver où sont les ventres et les nœuds d'oscillation pour chacune des grandeurs.
-\end{itemize}
-
-\noindent\shadowbox{\begin{minipage}[t]{1\linewidth}%
-\begin{itemize}
-\item Les \textbf{nœuds} de la vitesse apparaissent lorsque $kz + \phi ' = n\pi$
-\item A ces positions, le terme en cosinus dans la pression est maximal, on a donc un \textbf{ventre} de la pression.
-\item Inversement, les positions pour lesquelles on a un nœud de pression correspondent à un ventre pour la vitesse
-\end{itemize}
-\end{minipage}}
-
-On peut comprendre ce fait de la façon suivant: lorsque le fluide dans lequel l'onde se déplace se comprime de plus en plus, la vitesse du fluide diminue jusqu'à ce que la pression devienne maximale ; comme on ne peut plus comprimer le fluide simplement par le passage de l'onde, la vitesse s'annule, puis le gaz va commencer à se détendre (analogie avec un ressort que l'on comprime, puis qui va se détendre
-
-Lorsque la surpression s'annule, la vitesse du fluide est maximale, avant d'entamer un nouveau cycle de compression/détente. Sur la figure ci-dessous sont représentés des nœuds/ventres pour ces deux grandeurs et leur position relative.
-
-\begin{center}
- {\includegraphics[scale=0.65]{nv.png}}
-\end{center}
-
-Sur cette figure, on voit que pour chaque grandeur physique ont été tracées deux courbes correspondant à la valeur de chaque grandeur physique à des instants différents
-
-\noindent\shadowbox{\begin{minipage}[t]{1\linewidth}%
-\begin{itemize}
-\item Surpression et vitesse varient dans le temps, même si la position des nœuds et ventres ne varie pas (si les conditions ne changent pas!).
-\end{itemize}
-\end{minipage}}
-
-\subsection{Modes propres d'une cavité}
-
-Un tuyau ayant deux extrémités, il faut indiquer quelles sont les conditions aux limites pour pouvoir établir quelle onde stationnaire va s'établir dans le tuyau, c'est-à-dire quelle va être la position des nœuds et ventres des différentes grandeurs physiques. Pour chaque extrémité, deux chois s'offrent:
-
-\noindent\shadowbox{\begin{minipage}[t]{1\linewidth}%
-\begin{itemize}
-\item Soit le tuyau est ouvert en $z=z_{0}$. Dans ce cas, la pression dans le tuyau au niveau de l'ouverture est égale à la pression atmosphérique, et donc \textbf{la surpression est nulle}
-\end{itemize}
-\begin{center}
-$\forall t, p(z=z_{0}, t) = 0$
-\end{center}
-\begin{itemize}
-\item Soit le tuyau est fermé en $z=z_{0}$. Dans ce cas, le fluide ne peut physiquement plus se propager au-delà de cette limite, \textbf{la vitesse du fluide est donc nulle}
-\end{itemize}
-\begin{center}
-$\forall t, v(z=z_{0}, t) = 0$
-\end{center}
-\end{minipage}}
-
-\begin{itemize}
-\item[1.] \underline{Cas de deux extrémités ouvertes}: Dans ce cas, la surpression est nulle aux deux extrémités du tuyau de longueur $L$. Si on suppose que ce tuyau va de $z = 0$ à $z = L$, la condition $p(z=L,t)=0$ s'exprime sous la forme : $kL=n\pi$, avec $n$ entier. On a donc $L=np/2$. L'entier $n$ représente ici l'harmonique de l'onde, mais également le nombre de fuseaux présents au niveau de la surpression (un fuseau apparait sur la figure précédente entre deux nœuds consécutifs de la même grandeur physique). Aux extrémités, la surpression est nulle et la vitesse est maximale (centre de la vitesse).
-Cette situation physique se présente dans les instruments de type flûte, dont le tuyau est ouvert aux deux extrémités. La vibration de l'air est réalisée grâce à un biseau à l'embouchure de l'instrument.
-\item[2.] \underline{Cas de deux extrémités fermées}: Dans ce cas, c'est la vitesse qui est nulle en $z=0$ et en $z=L$. La condition $v(z=0,t)=0$ permet d'écrire dans ce cas $\phi = \pi /2$, et la condition $v(z=L,t)=0$, conduit aux mêmes modes propres que précédemment.
-\end{itemize}
 
 \subsection{Énergie d'une onde stationnaire}
 
@@ -194,6 +237,7 @@ dont la valeur moyenne temporelle est nulle:
 \begin{center}
 \scalebox{1.2}{$\left\langle e\right\rangle =\frac{\rho_{0}v_{m}^{2}}{4}$}
 \end{center}
+
 \end{minipage}}
 
 \subsection{Ordres de grandeurs}
@@ -285,7 +329,7 @@ ce qui justifie l'hypothèse adiabatique.
 \subsection{Conditions aux limites}
 
 \begin{center}
- {\includegraphics[scale=0.65]{ref_trans.png}}
+ {\includegraphics[scale=0.65]{ref_trans.eps}}
 \end{center}
 
 \begin{itemize}
