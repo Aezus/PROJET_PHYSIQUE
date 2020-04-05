@@ -175,11 +175,173 @@ $\Delta p(M,t)-\frac{1}{c^2}\frac{\partial^2 p(M,t)}{\partial t^2}=0$, où $c=\f
 
 \end{minipage}}
 
-\newpage
 \section{Ondes sonores planes progressives}
+\subsection{Ondes planes porgressives}
+\begin{text}[]
+Les équations précédentes ont toutes la même forme: elles sont linéaires à coefficients constants. Il est ainsi possible , grâce à l'analyse de Fourier, de décomposer la solution générale de ces équations en combinaisons linéaires d'ondes planes progressives.\newline
+\left \{
+\begin{array}{r c l}
+p(x,y,z,t)=$f_{p}(t-\frac{\vec u\cdot\vec r}{c})+g_{p}(t+\frac{\vec u\cdot\vec r}{c})$\\
+\rho(x,y,z,t)=$f_{\rho}(t-\frac{\vec u\cdot\vec r}{c})+g_{\rho}(t+\frac{\vec u\cdot\vec r}{c})$\\
+\vec v(x,y,z,t)=$\vec f_{v}(t-\frac{\vec u\cdot\vec r}{c})+\vec g_{v})(t+\frac{\vec u\cdot\vec r}{c})$\\
+ \end{array}
+   \right .\newline
+   \end{text}[]
+   
+   
+\begin{text}
+Le vecteur unitaire $\vect u$ précise la direction de propagation. En se limitant à une onde plane progressive harmonique (OPPH) de pulsation $\omega$, grandeur s précédantes s'écrivent:
+\newline
+   \left \{
+   \begin{array}{r c l}
+      p(x,y,z,t) = $p_{m}cos[\omega(t-\frac{\vec u\cdot\vec r}{c})]$\\
+      \rho(x,y,z,t) = $\rho_{m}cos[\omega(t-\frac{\vec u\cdot\vec r}{c})]$\\
+      vec v(x,y,z,t) = $vec v_{m}cos[\omega(t-\frac{\vec u\cdot\vec r}{c})]$\\
+   \end{array}
+   \right .
+   \newline
+\end{text}
+\begin{text}
 
-\newpage
-\section{Aspects énergétiques}
+On pose alors le vecteur d'onde $\vec k$ = $\frac{\omega}{c}\vec u$. La linéarité des équations permet également d'adopter la réprésentation complexe: \newline
+   \left \{
+   \begin{array}{r c l}
+      \underline{p}(x,y,z,t) = $p_{m}e^{j(\omega t - \vec k \cdot\vec r)}$\\
+      \underline{\rho}(x,y,z,t) = $\rho_{m}e^{j(\omega t - \vec k \cdot\vec r)}$\\
+      \vec \underline{v}(x,y,z,t) = $\vec v_{m}e^{j(\omega t - \vec k \cdot\vec r)}$\\
+   \end{array}
+   \right .
+\end{text}
+\subsection{Structure des ondes planes progressives}
+\begin{text}
+En écrivant la relation $\vec rot(\vec v)$ en représentation complexe , on obtient:\newline $-j\vec k \land \underline{\vec v}$ = $\vec O$.\newline
+Le vecteur vitesse $\underline{\vec v}$ est donc colinéaire au vecteur d'onde $\vec k$, c'est à dire à la direction de propagation de l'onde. L'onde sonore est donc une onde longitudinale.\newline 
+De manière générale, ce résultat reste vrai pour les ondes planes progressives en raison du caractère linéaire de la décomposition de Fourier. On peut donc retenir que les ondes sonores planes progressives sont longititudinales. 
+\end{text}
+\subsection{Impédance acoustique}
+
+\begin{text}
+Par analogie à l'impédance électrique, on définit l'impédance acoustique pour relier linéairement la différence entre deux états du fluide parcouru par l'onde sonore(surpression p) et le mouvement de matière qui en résulte (vitesse $\vec v$).
+\end{text}
+\begin{defn}[]
+En représentation complexe, on définit l'impédance acoustique $\underline{Z}$ par:\newline 
+$\underline{Z}$ = $\frac{\underline{P}}{\underline{v}}$\newline
+avec $\underline{Z}$ l'impédance acoustique($kg\cdot m^{-2}\cdot s^{-1}$)\newline
+$\underline{P}$ la surpression en pascal (Pa)\newline
+$\underline{v}$ la vitesse ($m \cdot s^{-1}$)\newline
+\end{defn}[]
+\begin{text}
+Pour une OPPH, l'équation d'Euler linéarisée en représentation complexe donne: \newline 
+$j\omega \rho_{0}\vec \underline{v}$ = $j\vec k\underline{\rho}$.\newline
+
+En projetant cette relation sur la direction de propagation $\vec u$, on obtient l'impédence:\newline 
+$\underline{Z}$ = $-\rho{0}c$,\newline
+
+les champs de supression et de vitesse vibrant alors en opposition de phase.\newline 
+Pour une OPPH,l'impédance acoustique est réelle, indépendante de la pulsation $\omega$ et vaut:\newline
+$|\underline{Z}|$ = $\rho_{0}c$ = $\sqrt{\frac{\rho_{0}}{\chi_{0}}}$\newline 
+
+L'impédanceacoustique est donc d'autant plus élevée que le milieu est dense($\rho_{0}$ élevé) et peu compressible($\chi_{0}$ faible). De manière générale, ce résultat reste vrai pour les ondes planes progressives.
+\end{text}
+\subsection{ordres de grandeur et vitesse du son}
+\begin{text}
+La vitesse des ondes sonores s'écrit:\newline 
+c=$\frac{1}{\sqrt{\rho_{0}\chi_{0}}}$, avec $\chi_{0}$=$\frac{1}{\rho_{0}}(\frac{\partial \rho}{\partial p})$.\newline 
+Dans le cas d'un gaz parfait, on peut préciser l'expression du coefficient de compressibilité isentropique$\chi{0}$. L'équation d'une isentropique est en effet donnée par la loi de Laplace:\newline
+p=$C\rho^{\gamma}$, où $\gamma$ désigne le coefficient isentropique.\newline 
+En utilisant l'équation d'état des gaz parfait:\newline 
+p=$\frac{\rho RT}{M}$, en utilisant la dérivé de la loi de Laplace et en injectant la loi des gaz parfaits on obtient:\newline 
+$\chi_{0}$=$\frac{M}{\gamma \rho_{0}RT_{0}}$.\newline 
+Dans le cas des gaz parfaits, la vitesse c des ondes sonores a pour expression:\newline 
+c=$\sqrt{\frac{\gamma R T_{0}}{M}}$\newline 
+avec: c la vitesse ($m\cdot s^{-1}$)\newline
+$\gamma$ coefficient isentropique\newline 
+R=8,31 ($Jmol^{-1}K^{-1}$) la constante des gaz parfaits.\newline $T_{0}$ température en kelvin (K)\newline 
+M masse molaire ($kg\cdot mol^{-1})$\newline 
+
+A temperature ambiante:\newline 
+$T_{0}$ = 298 K\newline 
+c= 345 $m\cdot s^{-1}$
+Z = 403 $kg.m^{-2}s^{-1}$
+
+\end{text}
+\section{Aspect énergétiques}
+\subsection{Densité de courant d'énergie}
+\begin{text}
+Considérons une surface fictive S séparant le fluide en deux parties situés à gauche et à droite de cette surface. Une onde sonore se propage dans le fluide et met les particules en mouvement les particules situées à gauche de la surface S, les particules situées à  doitre de la surface n'ayant pas encore été mise en mouvement. La pression du fluide à gauche de la surface S est donc $p_{0}+p$ et la pression du fluide à droite de la surface S est $p_{0} $. La puissance des forces de pression exercées au niveau de la surface S est $p_{0}$. La puissance des forces de pression exercées au niveau de la surface S par la partie gauche sur la partie droite est alors:\newline 
+$P_{g\\rightarrow d}$=$\int\int_{S}(p_{0}+p)\vec v \cdot \vec n dS$,\newline
+
+où le vectuer unitaire $\vec n$ oriente la normale à la surface dans le sens de la force. Calculons la moyenne temporelle de cette puissance. En remarquant que:\newline 
+$<\int\int_{S}p_{0}\vec v \cdot \vec n dS>$ = $p_{0}\int\int_{S}<\vec v>\cdot \n Ds$ = 0,\newline
+
+il vient:\newline 
+$<P_{g\\rightarrow d}>$ = $<\int\int_{S}p\vec v \cdot \vec n dS>$.\newline 
+
+Seul le terme de la surpression contibue à la puissance moyenne des forces de pression. On peut alors définir le vecteur densité de courna t d'énergie par:\newline 
+$\vec \pi$ = $p\vec v$.\newline
+
+Au cours de la propagation d'une onde sonore, la puissance acoustique P reçue, par une particule fluide de volume V limitée par la surface fermée S est\newline 
+P=$-\oiint\vec \pi\cdot d\vec S$\newline 
+avec:\newline 
+P la puissance en watt(W)\newline 
+$\vec \pi$ = $p \vec v$ densité de courant d'énergie ($W.m^{-2}$)\newline
+d$\vec S$ orienté vers l'extérieur
+\end{text}
+\subsection{Densité volumique d'énergie}
+\begin{text}
+Partant de l'expression du vecteur d'énergie $\vec \pi$, on a:\newline 
+div$\vec \pi$=$div(p\vec v)$=$\vec v \cdot \vec grad p + pdiv(\vec v)$.\newline 
+
+Les équations de couplage linéarisées du fluide donnent:\newline 
+div$\vec \pi$ = $-\vec v \cdot (\rho{0} \frac{\partial \vec v}{\patial t})-p(\chi\frac{\partial p}{\partial t})$,\newline 
+soit:\newline 
+div$\vec \pi$=$-\frac{\partial}{\partial t}(\frac{\rho_{0}\vec v^{2}}{2}+\frac{\chi_{0}p^{2}}{2})$\newline 
+
+Le therme entre paranthèse est homogène à une énergie par unité de volume. On définit donc la densité volumique d'énergie e par:\newline
+e=$(\frac{\rho_{0}\vec v^{2}}{2}+\frac{\chi_{0}p^{2}}{2})$\newline 
+Chacun des thermes e admet une interprétation physique. Le premier terme si'nterprète comme un densité volumique d'énergie cinétique de la particule fluide. Le second terme, d'origine purement thermodynamique,
+comme une densité volumique d'énergie potentielle emmagasinée par le fluide et susceptible d'être restituée sous forme d'énergie cinétique. Seule la supression p intervient dans son expression, la contribution de la pression statique $p_{0}$, nulle en moyenne, ne contribuant à aucun transfert d'énergétique. L'équation vérifiée par la densité d'énergie volumique e peut se mettre sous la forme:
+$\frac{\partial e}{\partial t}+div \vec \pi$=0. \newline 
+Cette équation traduit localement la conservation de l'énergie. Il s'agit d'un bilan local. Une telle relation est très générale en physique. \newline 
+
+L'énergie sonore E contenur dans une particule fluide de volume V limitée par la surface fermée S vaut donc:\newline
+E=$\int\int\int_{V}edV$. \newline 
+En dérivant cette expression par rapport au temps on obtient: 
+$\frac{dE}{dt}$=$-\int\int\int_{V}\frac{\partial E}{\partial t}dV$,\newline 
+soit en utilisant l'équation du bilan loclal et le théorème de Green-Ostrogradski:\newline 
+$\frac{dE}{dt}$=$-\int\int\int_{V}div \vec \pi dV$= $-\oiint \vec \pi \cdot d\vec S$.\newline 
+On retrouve donc l'équation qui traduit globalement la conservation de l'énergie macroscopique:\newline 
+$\frac{dE}{dt}$=P.\newline 
+Au cours de la propagation de l'onde sonore, la conservation de l'énergie s'écrit:\newline 
+-globalement: $\frac{dE}{dt}$=$P$, avec E=$\int\int\int_{V}edV$;\newline 
+-localement: $\frac{\partial e}{\partial t}+div \vec \pi = 0$, avec e = $\frac{\rho_{0}\vec v^{2}}{2}+\frac{\chi_{0}p^{2}}{2}$.
+\end{text}
+\subsection{Energie d'une OPPH}
+\begin{text}
+Pour une OPPH se propageant selon l'axe Oz dans le sens des z positifs, surpression p et la vitesse$\vec v$ s'écrivent:
+\left \{
+   \begin{array}{r c l}
+      p(z,t)=$p cos(\omega t - kz)$ \\
+     vec v(z,t)=$v cos(\omega t - kz)\vec u_{z} $ \\
+    
+   \end{array}
+   \right .\newline
+   avec p=$\rho_{0}cv$ d'après la définition de  l'impédance acoustique.\newline 
+   -Le vecteur densité de courant d'énergie $\vec \pi$ a donc pour expression:\newline 
+   $\vec \pi$=$p\vec v$=$\rho_{0}cv^[2]cos^[2](\omega t -kz)\vec u{z}$.\newline 
+   
+   Sa valeur moyenne temporelle vaut alors:\newline 
+   <\vec \pi>=$\rho_{0}cv^[2]<cos^[2](\omega t-kz)>\vec u_{z}$=$\frac{\rho_{0}cv^{2}}{2}\vec u_{z}$\newline 
+   e = $\frac{\rho_{0}\vec v^{2}}{2}+\frac{\chi_{0}p^{2}}{2}$=$\rho_{0}v^[2]cos^[2](\omega t-kz)$\newline 
+   et sa valeur moyenne temporelle vaut:\newline
+   $<e>$=$\frac{\rho_{0}v^{2}}{2}$.\newline
+   On en déduit donc que:\newline
+   <\vec \pi>=$c<e>\vec u_{z}$.\newline 
+   cette rlation, bien qu'anodine, permet de définir la vitesse de propagation de l'énergie:\newline 
+   $\vec v_{E}$=$\frac{<\vec \pi>}{e}$=$c\vec u_{z}$.\newline
+   Pour une OPPH, la vitesse de porpagation de l'energie est donc égale à la vitesse de l'onde:\newline 
+   $v_{E}$=c
+\end{text}
 
 \newpage
 \section{Ondes sonores stationnaires}
