@@ -88,7 +88,7 @@ L'hypothèse (3) se vérifiera plus tard (cf 4.3)\newline
 \underline{Conclusion}: Par la suite, les petites grandeurs de variation que nous avons définies serons des termes d'ordre 1 par rapport auxquels on négligera \textbf{tous les termes d'ordre supérieur}.
 
 \subsubsection{Approximation isentropique}
-D'autres grandeurs comme la température entrent en jeu. Nous sommes donc amenés à faire des \textbf{hypothèses thermodynamiques} dans notre étude. En effet, l'onde acoustique peut se modéliser comme une succession de compressions du fluide qui se propagent. Dans un premier temps, nous négligerons les phénomènes irréversibles (viscosité du fluide, diffusion de particules notamment). En particulier, l'hypothèse (1) est cohérente car elle impose un faible gradient de pression au cours des transformations.\newline
+D'autres grandeurs comme la température entrent en jeu. Nous sommes donc amenés à faire des \textbf{hypothèses thermodynamiques} dans notre étude. En effet, l'onde acoustique peut se modéliser comme une succession de compressions et détentes du fluide qui se propagent. Dans un premier temps, nous négligerons les phénomènes irréversibles (viscosité du fluide, diffusion de particules notamment). En particulier, l'hypothèse (1) est cohérente car elle impose un faible gradient de pression au cours des transformations.\newline
 On ajoute à cela l'hypothèse de transformations \textbf{adiabatiques} (cf 4.3), nous étudions alors des transformations \underline{isentropiques} ($\Delta S=0$). \newline \newline
 On choisit alors de décrire le fluide par son \textbf{coefficient de compressibilité isentropique}:
 \begin{center}
@@ -673,9 +673,68 @@ Comme pour les coefficients en amplitude, une onde sonore est d'autant mieux tra
 
 \newpage
 \section{Application sous forme d'un exercice}
+L'objectif de cet exercice est d'adapter les résultats du cours sur une onde acoustique dans un référentiel non fixe par rapport à un autre référentiel galiléen terrestre (nous par exemple) et étudier l'effet Doppler.\newline
+On considère une onde acoustique dans un référentiel R' en translation uniforme à la vitesse $\vec{v_0}=v_0\vec{u_x}$ par rapport au référentiel R galiléen.
+\begin{center}
+{\includegraphics[height=5cm]{exo.eps}}
+\end{center}
+Dans le référentiel R', on décrit l'onde par les déformations qu'elle crée :\newline
+$\begin{cases}
+P'(x',t)=P_0+p'(x',t) \\
+V'(x',t)=-v_0+v'(x',t) &\text{d'après la loi de composition des vitesses} \\
+\rho'(x',t)=\rho_0+\mu'(x',t)
+\end{cases}$\newline \newline
+On se place dans l'approximation acoustique : $|p'|\ll P_0$; $v'\ll v_0$; $\mu'\ll \rho_0$\newline
+1)Établir l'équation de propagation\newline \newline
+On va alors linéariser les équations d'Euler et de conservation de la masse de la même manière qu'en 1.3. Pour l'équation d'Euler, la simplification de l'accélération locale reste la même. Cependant, l'accélération convective comporte ici des termes d'ordre 1:
+\begin{center}
+$\rho'(x',t)(\vec{V'}.\overrightarrow{\textrm{grad}})\:\vec{V'}(x',t)=\rho'(x',t)(-v_0+v')\frac{\partial v'(x',t)}{\partial x'}$\newline
+$\rho'(x',t)(\vec{V'}.\overrightarrow{\textrm{grad}})\:\vec{V'}(x',t)\approx -\rho_0v_0\frac{\partial v'(x',t)}{\partial x'}$ en négligeant tous les termes d'ordre supérieur à 1
+\end{center}
+L'équation d'Euler devient :
+\begin{center}
+$\rho_0\frac{\partial v'(x',t)}{\partial t}-\rho_0v_0\frac{\partial v'(x',t)}{\partial x'}=-\frac{\partial p'(x',t)}{\partial x'}$
+\end{center}
+Il nous faut aussi adapter l'équation de conservation de la masse. Cette fois-ci, le terme à simplifier différemment est $div(\rho'\vec{V'})(x,t)$.
+\begin{center}
+$\rho'V_x'(x',t)=\underbrace{-\rho_0v_0}_{cte}+\rho_0v'(x',t)-\mu'(x',t)v_0+\underbrace{\mu'(x',t)v'(x',t)}_{ordre\:2}$
+\end{center}
+On néglige le terme d'ordre 2 et le terme constant s'annule par l'opérateur div. On trouve alors l'équation de conservation:
+\begin{center}
+$\frac{\partial \mu'(x',t)}{\partial t}+\rho_0\frac{\partial v'(x',t)}{\partial x'}-v_0\frac{\partial \mu'(x',t)}{\partial x'}=0$
+\end{center}
+On combine ces 2 équations avec le relation \textcircled{c} de 1.3 sur le coefficient de compressibilité isentropique et on trouve l'équation de propagation:
+\begin{center}
+\fbox{$\frac{\partial^2 p'(x',t)}{\partial t^2}-2v_0\frac{\partial^2p'(x',t)}{\partial x'\partial t}=(c^2-v_0^2)\frac{\partial^2p'(x',t)}{\partial x'^2}$}
+\end{center}
+Avec $c=\frac{1}{\sqrt{\rho_0\chi_S}}$\newline
+\underline{Remarque}:On retrouve l'équation de d'Alembert établie en 1.3 dans le cas où $v_0=0$ (i.e référentiel fixe).\newline
+En passant par la forme exponentielle et en notant $k'$ le vecteur d'onde et $\omega'$ la pulsation de l'onde dans le référentiel R', on retrouve de la même manière qu'en 2.? , une relation de dispersion légèrement différente:
+\begin{center}
+$\omega'^2+2v_0k'\omega'-(c^2-v_0^2)k'^2=0$    : \textcircled{d}
+\end{center}
+2)Déterminons $k'$ en fonction des autres variables du problème.\newline \newline
+L'onde se propage dans le sens des x croissants, on a donc $k'>0$. \textcircled{d} est une équation du second degré en k' de discriminant $\Delta=4\omega'^2c^2$.\newline
+La seule solution positive à cette équation est
+\begin{center}
+\fbox{$k'=\frac{\omega'}{c-v_0}$}
+\end{center}
+3)Cherchons maintenant la relation entre les grandeurs du référentiel R' et celles du référentiel R.\newline \newline
+Tout d'abord, le champ de surpression est indépendant du référentiel car le champ de forces est invariant par changement de référentiels (référentiels galiléen en translation). En notant $\omega$ et $k$ la pulsation et le vecteur d'onde dans le référentiel R, on peut écrire sous forme exponentielle
+\begin{center}
+$p(x,t)=p_0exp(i(\omega t-kx))$ et 
+$p'(x',t)=p_0exp(i(\omega't-k'x))$
+\end{center}
+Or, à l'instant t, la vitesse de translation de R' étant uniforme, on peut écrire $x=x'+v_0t$.\newline \newline
+Donc, $p(x'+v_0t,t)=p_0exp(i((\omega -kv_0)t-kx'))=p'(x',t)$ par invariance du champ de surpression.\newline \newline
+On en déduit $k=k'$ et $\omega'=\omega -kv_0$. Or, $k=k'=\frac{\omega'}{c-v_0}$\newline
+Donc,\quad$\omega=\omega'(\frac{v_0}{c-v_0}+1)=\omega'\frac{c}{c-v_0}$\newline \newline
+Ou encore, $f=f'\frac{1}{1-\frac{v_0}{c}}$. En effectuant un D.L. à l'ordre 1 car dans le cas général (faux pour le bang supersonique par exemple), on a $|v_0|\ll c$:\newline
+\begin{center}
+\fbox{$f=f'\frac{|v_0|}{c}$}
 
-\begin{doublespace}
-Encore un autre paragraphe.
-\end{doublespace}
+\end{center}
+4)\underline{Application}:\newline \newline
+Soit R le référentiel d'un piéton qui marche sur un trottoir dans le sens des x croissants et R' le référentiel d'une voiture de police arrivant dans le sens des x croissants par derrière le piéton. Lorsque la voiture s'approche du piéton, $v_0<0$ donc $1-\frac{v_0}{c} > 1$ donc $f<f'$ et lorsque voiture s'éloigne (une fois avoir doublé le piéton), $v_0>0$ donc $f>f'$. Le piéton perçoit donc un changement de tonalité du son de la sirène au cours de son déplacement. C'est \textbf{l'effet Doppler}.
 
 \end{document}
