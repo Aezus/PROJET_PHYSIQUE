@@ -58,9 +58,66 @@ où $c$ est la célérité de l'onde acoustique.
 
 
 \section{Equation de propagation et forme des solutions.}
-
+1. Les OPPM: lorsqu'un son se porpage d'un point A vers un point B, l'onde possède une direction fixe, il est donc pratique d'utiliser ce type de solutions comme l'écoulement est irrationnel, on peut donc définir le potentiel des vitesses $\phi(\vec r,t)$ que l'on note sous forme complexe:\newline
+\begin{center}
+    $\underline \phi(\vec r,t)$ = $\underline \phi_{0}e^{j(\omega t - \vec k \cdot \vec r)}$
+\end{center}
+\newline 
+On peut directement trouver un lien entre la surpression et le potentiel des vitesses; on trouve pour expression de la surpression:
+\begin{center}
+    $\underline p(\vec r,t)$ = $-j\omega p_{0} \underline \phi_{0}e^{j(\omega t - \vec k \cdot \vec r)}$
+\end{center}
+\newline 
+De même, avec la conservation de la masse on trouve: $\rho_{0} \Delta \phi$= $\frac{\partial \mu}{\partial t}$, et on obtient :\newline
+\begin{center}
+    $\underline \mu(\vec r,t)$ = $-j\frac{\rho_{0}k}{c}\phi_{0}e^{j(\omega t - \vec k \cdot \vec r)}$
+\end{center}
+\newline 
+Enfin la vitesse $\vec v$ s'exprime par la relation:
+\begin{center}
+    $\underline {\vec v}(\vec r,t)$ = $-j\vec k\phi_{0}e^{j(\omega t - \vec k \cdot \vec r)}$.
+\end{center}
 \section{Bilan énergétique}
-
+\begin{text}
+La conservation de l'énergie au niveau local s'exprime sous la forme:\newline 
+\begin{center}
+    $div \vec \pi + \frac{\partial(e_{c}+e_{p}}{\partial t}$=0,
+\end{center}\newline 
+$\vec \pi$ est le vecteur de denisté de flux de puissance sonore (vecteur de Ponyting acoustique), $e_{c}$ est l'énergie cinétique volumique du fluide et $e_{p}$ l'énergie potentielle volumique du fluide associée aux forces de pression ces trois grandeurs sont définis par:\newline 
+   \left \{
+   \begin{array}{r c l}
+     $\vec \pi$  & = & $p_{i}\cdot \vec v_{l}$\\
+     $e_{c}$   & = & $\frac{\mu \vec v_{l}^{2}}{2}$ \\
+     $e_{p}$ & = & $\frac{\chi{i}P_{l}^{2}}{2}$
+   \end{array}
+   \right . 
+\end{text}
+\begin{text}
+\newline
+Sous sa forme intégrée, cette conservation d'énergie s'exprime selon:\newline
+\begin{center}
+    $\frac{d(E_{c}+E_{p})}{dt}$ = $-\int\int_{S}\vec \pi \cdot \vec dS$,\newline
+    \end{center}
+       \left \{
+   \begin{array}{r c l}
+      $E_{c}$  & =& $-\int\int\int_{V}e_{c}(t)d\tau$ \\
+      $E_{c}$  & = & $\int\int\int_{V}e_{p}(t)d\tau$
+   \end{array}
+   \right .
+\end{text}
+\begin{text}
+\newline
+Ici I représente le volume de l'intérieur de la surface $S\cdot \vec dS$ est un vecteur surfacique infinitésimal dont le sens est vers l'extérieur de V, et $d\tau$ est un volume infitesimal .\newline 
+L'introduction du vecteur de Poynting permet de définir l'intensité acoustique I($W\cdot m^{-2}$):\newline 
+\begin{center}
+    I = $<|\vec \pi|>$ = $<p_{i}v_{i}>$
+\end{center}
+\newline
+Ensuite on peut définir le niveau sonore, qui s'exprime en dB:
+\begin{center}
+    L = 10log$\frac{I}{I_{0}}$
+\end{center}
+\end{text}
 \section{Coefficients de réflexion et de transmission à une interface sous incidence normale}
 \begin{itemize}
 \item Une onde sonore progressive plane en propagation dans le sens des $z$ croissants tombe sur une interface plane infinie située en $z=0$ entre deux fluides. L'onde est en partie réfléchie et en partie transmise. Sous incidence normale, à l'interface:
