@@ -1,0 +1,96 @@
+\documentclass[a4paper]{article}
+\usepackage[left=1.8cm,right=1.8cm,top=2cm,bottom=2cm]{geometry}
+
+\input{preamb-packages-communs.tex}
+
+\usepackage{setspace}
+\usepackage{amsmath}
+
+\pagestyle{fancy}
+\fancyfoot[C]{\thepage}
+\fancyhead[L]{La Prépa des INP - Bordeaux}
+\fancyhead[C]{}
+\fancyhead[R]{Ondes Acoustiques dans les Fluides}
+\renewcommand{\footrulewidth}{1pt}
+\begin{document}
+\centerline{\huge{\textbf{Fiche de Synthèse}}}
+%\section*{Fiche de synthèse}
+%\subsection*{\small{Ondes acoustiques dans les Fluides}}
+\begin{center}
+ \rule{1\linewidth}{1pt}
+\end{center}
+
+
+\section{Qu'est ce qu'une onde acoustique ?}
+Une onde acoustique est une succession périodique de compressions et de détentes d'un fluide. Les grandeurs physiques caractéristiques sont donc la pression du fluide, sa vitesse et sa masse volumique.
+
+\section{L'approximation acoustique}
+
+\begin{itemize}
+\item[$\bullet$] Une onde sonore en propagation dans un fluide peut être décrite en chaque point $M(x,y,z)$ et à chaque instant $t$ par les champs de pression (Pa), de masse volumique ($kg\cdot m^{-3}$) et de vitesse ($m\cdot s^{-1}$):
+
+\begin{displaymath}
+\left\lbrace
+\begin{array}{ccl}
+p_{tot}(x,y,z,t) & =  p_{0}+p(x,y,z,t) & avec  \left\langle p\right\rangle = 0 \\ 
+\rho_{tot}(x,y,z,t) & =  \rho_{0}+\rho(x,y,z,t) & avec  \left\langle \rho\right\rangle = 0 \\
+\overrightarrow{v}_{tot}(x,y,z,t) & = \overrightarrow{v}_{0}+\overrightarrow{v}(x,y,z,t) & avec \left\langle \overrightarrow{v}\right\rangle = 0
+\end{array}\right.
+\end{displaymath}
+
+Les grandeurs indicées "$0$" sont les grandeurs au repos, supposées uniformes. 
+$p$ est la \textbf{surpression} (ou pression acoustique) (en Pa)dû au passage de l'onde, et $\rho$ représente la variation de masse volumique.
+
+\vspace{2mm}
+
+\item[$\bullet$] \textbf{Approximation acoustique:} dans la description de l'onde sonore, on se limite à des \textbf{calculs à l'ordre 1}, ce qui permet d'écrire des équations linéaires. Dans le cadre de cette approximation, $\rho$ et $p$ sont donc des infiniment petits du premier ordre : 
+
+\begin{displaymath}\begin{array}{ccc}
+\left|p\right|\gg p_{0}, \left|\rho\right|\gg\rho_{0} & et & \left|\overrightarrow{v}\right|\ll c
+\end{array}
+\end{displaymath}
+où $c$ est la célérité de l'onde acoustique.
+
+\item[$\bullet$] Ce couplage avec l'approximation isentropique permet de déterminer l'équation de propagation des ondes lors de petits mouvement (hypothèse vérifier en pratique).
+
+\item[$\bullet$] C'est une approximation de grandes longueurs d'ondes.
+\end{itemize}
+
+
+\section{Equation de propagation et forme des solutions.}
+
+\section{Bilan énergétique}
+
+\section{Coefficients de réflexion et de transmission à une interface sous incidence normale}
+\begin{itemize}
+\item Une onde sonore progressive plane en propagation dans le sens des $z$ croissants tombe sur une interface plane infinie située en $z=0$ entre deux fluides. L'onde est en partie réfléchie et en partie transmise. Sous incidence normale, à l'interface:
+\item[-] Il y a \textbf{continuité des champs de vitesse}
+\begin{center}
+$\overrightarrow{v_{i}}(z=0,t)+\overrightarrow{v_{r}}(z=0,t)=\overrightarrow{v_{t}}(z=0,t)$
+\end{center}
+\item[-] Il y a \textbf{continuité des champs de surpression}
+\begin{center}
+$p_{i}(z=0,t)+p_{r}(z=0,t)=p_{t}(z=0,t)$
+\end{center}
+
+\item On considère la réflexion et la transmission d'une onde acoustique qui se propage dans un milieu $1$, et est incidente au niveau d'une interface. On considère les deux milieux ayant des impédances acoustiques différents dont on peut définir $2$ types de coefficients (associés à la propagation de la surpression ou de la vitesse). Les coefficients de réflexion $r_{v}$ et de transmission $t_{v}$ en amplitude des vitesses, les coefficients de réflexion $r_{p}$ et de transmission $t_{p}$ en amplitude des surpressions, sont à l'interface:
+\begin{center}
+\scalebox{1.2}{$r_{v}=\frac{Z_{1}-Z_{2}}{Z_{1}+Z_{2}}$} et \scalebox{1.2}{$t_{v}=\frac{2Z_{1}}{Z_{1}+Z_{2}}$}
+\end{center}
+\begin{center}
+\scalebox{1.2}{$r_{p}=\frac{Z_{2}-Z_{1}}{Z_{1}+Z_{2}}$} et \scalebox{1.2}{$t_{p}=\frac{2Z_{2}}{Z_{1}+Z_{2}}$}
+\end{center}
+
+\item De même, les coefficients de réflexion R et de transmission T des puissances sonores sont :
+\begin{center}
+\scalebox{1.2}{$R=r_{v}^{2} =\left(\frac{Z_{1}-Z_{2}}{Z_{1}+Z_{2}}\right)^{2}$}
+\end{center}
+\begin{center}
+\scalebox{1.2}{$T=t_{v}^{2}\frac{Z_{2}}{Z_{1}} =\frac{4Z_{1}Z_{2}}{(Z_{1}+Z_{2})^{\text{2}}}$}
+\end{center}
+
+\item On remarque que $R+T=1$, ce qui traduit \textbf{la conservation de l'énergie.}
+
+\end{itemize}
+
+\end{document}
